@@ -1,0 +1,12 @@
+# 依赖
+node_modules/
+
+# 编辑器 / 系统
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# 临时凭证与日志
+.gh-token
+*.log

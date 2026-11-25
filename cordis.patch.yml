@@ -1,0 +1,33 @@
+# 更懂你（Understand you better）bundle 的装载声明。
+#
+# 干什么：往 profile 的配置树里插入一行插件 entry。
+#   - insert：新增插件行
+#   - id：行标识，全局唯一；profile 的 cordis.patch.yml 里按这个 id 覆盖 config
+#   - name：模块名，解析到本包的 index.js（Host 半侧）
+#
+# 默认配置直接写在这里，方便对照修改。注意：profile 的 patch 层按 id 覆盖时
+# 会「整段替换」config，但插件对缺省字段有默认值，只写想改的那几项即可。
+#
+# 可用的 config 字段：
+#   language          'zh' | 'en'   内置协议文本语言，默认 zh
+#   profile           string        「关于用户」长期偏好，留空则不注入
+#   requireQuestion   boolean       是否必须提问，默认 true
+#   maxQuestions      1 | 2 | 3     每轮最多提几个问题，默认 2
+#   expertPerspective boolean       是否按目的切换专家视角，默认 true
+#   pitfalls          boolean       是否点出易错点，默认 true
+#   casualExempt      boolean       纯闲聊是否豁免，默认 true
+#   reminder          boolean       是否每步注入一行短提醒，默认 true
+#   extra             string        追加的自定义规则，默认空
+- insert:
+    - id: dsh-understand-you
+      name: '@local/dsh-understand-you'
+      config:
+        language: zh
+        profile: ''
+        requireQuestion: true
+        maxQuestions: 2
+        expertPerspective: true
+        pitfalls: true
+        casualExempt: true
+        reminder: true
+        extra: ''
